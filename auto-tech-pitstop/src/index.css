@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+
+    --font-sans: "Saira Condensed", sans-serif;
+}
+
+html,
+body {
+    width: 100%;
+    background: linear-gradient(to bottom, #00235B, #0060DE);
+    color: white;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+
+@utility flex-center{
+    @apply flex items-center justify-center h-screen; 
+}
+
