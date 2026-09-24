@@ -8,12 +8,15 @@ import Navbar from './components/Navbar';
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [showNav, setShowNav] = useState(false)
 
   return (
     <main>
-      <Navbar />
-      <LoadingHero />
+       {/* If showNav is true, then render navBar */}
+      {showNav && <Navbar />}
+      {/* This is saying: */}
+      {/* Here's a function, keep it and call it when you're done. */}
+      <LoadingHero onComplete={() => setShowNav(true)}/>
     </main>
   )
 }

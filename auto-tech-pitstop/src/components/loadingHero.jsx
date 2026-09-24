@@ -4,19 +4,24 @@ import { SplitText } from "gsap/all";
 import {useGSAP} from '@gsap/react'
 
 
-const loadingHero = () => {
+const loadingHero = ({onComplete}) => {
 
   
   useGSAP(() => {
-    const loadingTitle = new SplitText("#hero-title", {type: "chars"});
+    const loadingTitle = new SplitText("#title", {type: "chars"});
     const subTitle = new SplitText("#subtitle", {type:"chars"});
 
     const tl = gsap.timeline();
 
     tl.from("#bmw",{
       x:"-100vw",
-      duration:1,
+      duration:0.7,
       ease:"power3.out"
+    })
+    .from("#infiniti",{
+       x:"-100vw",
+       duration:0.7,
+       ease:"power3.out"
     })
     .from(
       loadingTitle.chars,
@@ -41,42 +46,46 @@ const loadingHero = () => {
       x:"100vw",
       duration:1,
       ease:"power3.in",
-      delay:0.1,
     })
     
     .to(subTitle.chars,{
       x:"100vw",
       duration:0.6,
       ease:"power3.in",
-      delay:0.1,
+      onComplete: onComplete
     });
+
   });
+
+  
   return (
-    <div className="flex-center flex-col font-sans font-bold">
+  <div className="flex-center flex-col font-sans font-bold">
 
-  <div id="hero-title" className="flex items-center text-5xl ">
+  <div id="hero-title" className="flex items-center">
 
+   
+     <img
+      id="infiniti"
+      src="/images/infinitiq50.png"
+      alt="infinitiq50"
+      className="w-30 sm:w-37 md:w-48 lg:w-55 "
+    />
 
-    <h1 id="title" className=" text-3xl sm:text-4xl md:text-5xl lg:text-6xl whitespace-nowrap">
-      Auto Tech Pitstop
-    </h1>
+    <h1 id="title" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl whitespace-nowrap" >
+     Auto Tech Pitstop
+      </h1>
 
      <img
       id="bmw"
       src="/images/bmwm3.png"
       alt="BMW M3"
-      className="w-28 sm:w-36 md:w-44 lg:w-50"
+      className="w-28 sm:w-36 md:w-44 lg:w-50 "
     />
     
   </div>
-  <h2 id="subtitle" className="text-2xl text-lg sm:text-xl md:text-2xl">
+  <h2 id="subtitle" className="text-lg sm:text-xl md:text-2xl">
     Proudly Serving Long Island and Queens
   </h2>
-
-
-  
-
-
 </div>
   
   )
