@@ -1,9 +1,35 @@
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react'
+import { useState, useEffect, useRef } from 'react';
 
 import {navLinks} from '../../constants/index.js';
 
 const Navbar = () => {
+    const [activeDropdown, setActiveDropdown] = useState(null);
+    const navRef = useRef(null);
+    useEffect(() => {
+        const handleOutsideClick = (e) => {
+        if (navRef.current && !navRef.current.contains(e.target)) {
+            setActiveDropdown(null);
+        }
+        };
+
+        if (activeDropdown) {
+        document.addEventListener('click', handleOutsideClick);
+        }
+
+        return () => {
+        document.removeEventListener('click', handleOutsideClick);
+        };
+    }, [activeDropdown]);
+
+    const handleLinkClick = (e, link) => {
+        if (link.subLinks) {
+        e.preventDefault();
+        setActiveDropdown(activeDropdown === link.id ? null : link.id);
+        }
+    };
+
 
     useGSAP(() => {
         gsap.from("#logo", {
@@ -22,7 +48,7 @@ const Navbar = () => {
             element.addEventListener("mousemove", (e)=>{
                 const rect = element.getBoundingClientRect()
                 const dx = e.clientX -  (rect.x + (rect.width/2));
-                const dy = e.clientY - (rect.y + (rect.y /2));
+                const dy = e.clientY - (rect.y + (rect.height /2));
                 const dist = Math.sqrt(dx*dx + dy*dy);
                 if(dist < 120){
                     const pull = (120-dist )/120;
@@ -39,26 +65,41 @@ const Navbar = () => {
                     overwrite: true
                 })
             })
-        });
- 
-
+        })
+         
 
     });
   return (
-    <nav>
+    <nav ref={navRef}>
         <div className='flex justify-center items-center'>
              <img src="/images/atplogo.svg" alt="logo" id="logo" />
         </div>
-        <ul id="nav-links" className='flex items-center justify-center'>
+        <ul id="nav-links">
                 {navLinks.map((link)=>(
-                    <li key={link.id} className="nav-link relative px-2 py-1 ">
-                        <a href={`#${link.id}`}>{link.title}</a>
-                        <svg className="absolute inset-0" width="w-full" height="h-full">
+                    <li key={link.id} className="nav-link relative px-2 py-1 group ">
+                        <a href={`#${link.id}`}
+                        onClick={(e) => handleLinkClick(e, link)}
+                        >{link.title}</a>
+                        {/* If link has sub-links, render it */}
+                        {link.subLinks &&(
+                            <ul id="navbar-sublinks" className={activeDropdown === link.id ? 'open' : ''}>
+                                {link.subLinks.map((subLink) => (
+                                    <li key={subLink.id}
+                                    onClick={() => setActiveDropdown(null)}
+                                    >
+                                        <a href={`#${subLink.id}`}>{subLink.title}</a>
+                                    </li>
+                                    
+                                ))}
+                            </ul>
+                        )
+                        }
+                       <svg className="absolute inset-0 w-full h-full pointer-events-none">
                             <rect className="stroke-white" width="100%" height="100%" fill="none" rx="20"></rect>
                         </svg>
                     </li>
                 ))}
-            </ul>
+        </ul>
     </nav>
   )
 }

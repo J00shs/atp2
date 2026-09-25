@@ -43,7 +43,7 @@ const loadingHero = ({onComplete}) => {
 
     }, "-=0.2")
     .to("#hero-title",{
-      x:"100vw",
+      x:"110vw",
       duration:1,
       ease:"power3.in",
     })
@@ -61,7 +61,7 @@ const loadingHero = ({onComplete}) => {
   return (
   <div className="flex-center flex-col font-sans font-bold">
 
-  <div id="hero-title" className="flex items-center">
+  <div id="hero-title" className="flex items-center justify-center gap-2 sm:gap-4 md:gap-6 lg:gap-8">
 
    
      <img
