@@ -59,7 +59,7 @@ const loadingHero = ({onComplete}) => {
 
   
   return (
-  <div className="flex-center flex-col font-sans font-bold">
+  <div className="flex-center flex-col font-bold text-white">
 
   <div id="hero-title" className="flex items-center justify-center gap-2 sm:gap-4 md:gap-6 lg:gap-8">
 

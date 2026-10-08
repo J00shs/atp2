@@ -8,40 +8,40 @@ const Navbar = () => {
     const [activeDropdown, setActiveDropdown] = useState(null);
     const navRef = useRef(null);
     useEffect(() => {
-        const handleOutsideClick = (e) => {
-        if (navRef.current && !navRef.current.contains(e.target)) {
-            setActiveDropdown(null);
-        }
-        };
-
-        if (activeDropdown) {
-        document.addEventListener('click', handleOutsideClick);
-        }
-
-        return () => {
-        document.removeEventListener('click', handleOutsideClick);
-        };
-    }, [activeDropdown]);
-
-    const handleLinkClick = (e, link) => {
-        if (link.subLinks) {
-        e.preventDefault();
-        setActiveDropdown(activeDropdown === link.id ? null : link.id);
-        }
+    const handleOutsideClick = (e) => {
+      if (navRef.current && !navRef.current.contains(e.target)) {
+        setActiveDropdown(null);
+      }
     };
+
+    if (activeDropdown) {
+      document.addEventListener('click', handleOutsideClick);
+    }
+
+    return () => {
+      document.removeEventListener('click', handleOutsideClick);
+    };
+  }, [activeDropdown]);
+
+  const handleLinkClick = (e, link) => {
+    if (link.subLinks) {
+      e.preventDefault();
+      setActiveDropdown(activeDropdown === link.id ? null : link.id);
+    }
+  };
 
 
     useGSAP(() => {
         gsap.from("#logo", {
             ease: "power1.out",
-            duration: 1.5,
+            duration: 0.5,
             y: -200,
             opacity: 0})
         gsap.from("#nav-links",{
                 ease:"power1.in",
                 y:200,
                 opacity:0,
-                duration:1.4
+                duration:0.5
         })
         // Hover animation for navbar elements
         gsap.utils.toArray(".nav-link").forEach(element =>{
@@ -66,14 +66,12 @@ const Navbar = () => {
                 })
             })
         })
-         
-
+             
     });
   return (
     <nav ref={navRef}>
-        <div className='flex justify-center items-center'>
+        <div className="flex flex-col items-center">
              <img src="/images/atplogo.svg" alt="logo" id="logo" />
-        </div>
         <ul id="nav-links">
                 {navLinks.map((link)=>(
                     <li key={link.id} className="nav-link relative px-2 py-1 group ">
@@ -100,7 +98,11 @@ const Navbar = () => {
                     </li>
                 ))}
         </ul>
+        </div>
+        
+
     </nav>
+    
   )
 }
 
