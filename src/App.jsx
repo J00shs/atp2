@@ -5,6 +5,7 @@ import gsap from 'gsap';
 import { ScrollTrigger, SplitText } from "gsap/all";
 import Navbar from './components/Navbar';
 import Home from './components/Home';
+import Book_Now from './components/Book_Now';
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 function App() {
@@ -19,47 +20,54 @@ function App() {
         <>
           <Navbar />
           <Home />
-          <h1>1</h1>
-          <h1>1</h1>
-          <h1>1</h1>
-          <h1>1</h1>
-          <h1>1</h1>
-          <h1>1</h1>
-          <h1>1</h1>
-          <h1>1</h1>
-          <h1>1</h1>
-          <h1>1</h1>
-          <h1>1</h1>
-          <h1>1</h1>
-          <h1>1</h1>
-           <h1>1</h1>
-            <h1>1</h1>
-             <h1>1</h1>
-              <h1>1</h1>
-               <h1>1</h1>
-               
-                <h1>1</h1>
-                 <h1>1</h1>
-                  <h1>1</h1>
-                   <h1>1</h1>
-                    <h1>1</h1>
-                     <h1>1</h1>
-                      <h1>1</h1>
-                       <h1>1</h1>
-                        <h1>1</h1>
-                         <h1>1</h1>
-                          <h1>1</h1>
-                           <h1>1</h1>
-                            <h1>1</h1>
-                             <h1>1</h1>
-                              <h1>1</h1>
-                               <h1>1</h1>
-                                <h1>1</h1>
-                                 <h1>1</h1>
-                                  <h1>1</h1>
-                                   <h1>1</h1>
-                                    <h1>1</h1>
-                                     <h1>1</h1>
+          <Book_Now />
+          <h1>hello</h1>
+          <h1>hello</h1>
+          <h1>hello</h1>
+          <h1>hello</h1>
+          <h1>hello</h1>
+          <h1>hello</h1>
+          <h1>hello</h1>
+          <h1>hello</h1>
+          <h1>hello</h1>
+          <h1>hello</h1>
+          <h1>hello</h1>
+          <h1>hello</h1>
+          <h1>hello</h1>
+          <h1>hello</h1>
+           <h1>hello</h1>
+          <h1>hello</h1>
+          <h1>hello</h1>
+          <h1>hello</h1>
+          <h1>hello</h1>
+          <h1>hello</h1>
+          <h1>hello</h1>
+          <h1>hello</h1>
+          <h1>hello</h1>
+          <h1>hello</h1>
+          <h1>hello</h1>
+          <h1>hello</h1>
+          <h1>hello</h1>
+          <h1>hello</h1>
+          
+           <h1>hello</h1>
+          <h1>hello</h1>
+          <h1>hello</h1>
+          <h1>hello</h1>
+          <h1>hello</h1>
+          <h1>hello</h1>
+          <h1>hello</h1>
+          <h1>hello</h1>
+          <h1>hello</h1>
+          <h1>hello</h1>
+          <h1>hello</h1>
+          <h1>hello</h1>
+          <h1>hello</h1>
+          <h1>hello</h1>
+          
+
+          
+        
 
 
 
