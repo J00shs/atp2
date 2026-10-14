@@ -5,7 +5,7 @@ import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from "gsap/SplitText";
 
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+// gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const Home = () => {
   const videoRef = useRef(null);
@@ -21,7 +21,7 @@ const Home = () => {
     })
     gsap.from(split_two.chars, {
       duration: 0.9,
-      x: -500,
+      x: -80,
       stagger:0.02
     })
 
@@ -35,51 +35,42 @@ const Home = () => {
       scrollTrigger: {
         trigger: video,
         start: "top top",
-        end: "+=700",
-        scrub: true,
+        end: "+=1200",
+        scrub: 0.5,
         pin: true,
-        // markers:true //allows you to debug
+        markers:false //allows you to debug
       }
     });
     tl.to("#attn-one", {
       opacity: 0,
       x:-200,
-      duration:0.3,
+      duration:0.2,
       ease:"back.out",
     }, 0);
+    tl.to("#attn-three", {
+      opacity: 0,
+      x:200,
+      duration:0.2,
+      ease:"back.out",
+    }, 0);
+
+
     tl.to("#attn-two", {
       opacity: 0,
       x:-200,
       duration:0.3,
       ease:"back.out",
-    }, 0.1);
-
-    tl.from("#attn-three", {
-      opacity: 0,
-      x:20,
-      duration:0.3,
-      ease:"back.out",
-    }, 0.2);
-    tl.from("#attn-four", {
-      opacity: 0,
-      x:20,
-      duration:0.3,
-      ease:"back.out",
-    }, 0.3);
-
-    tl.to("#attn-three", {
-      opacity: 0,
-      x:10,
-      duration:0.3,
-      ease:"back.out",
-    }, 0.5);
+    }, 0.022);
 
     tl.to("#attn-four", {
       opacity: 0,
-      x:10,
+      x:200,
       duration:0.3,
       ease:"back.out",
-    }, 0.6);
+    }, 0.022);
+    
+
+   
 
     const setupAnimation = () => {
       tl.fromTo(
@@ -107,7 +98,7 @@ const Home = () => {
 
   return (
     <>
-      <section id="hero-home" className="relative h-screen">
+      <section id="hero-home" className="relative h-[100svh]">
         <div className="absolute flex inset-0 items-center justify-center">
           <video
             ref={videoRef}
@@ -125,7 +116,7 @@ const Home = () => {
         <h1 id="attn-two"className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold"> Quality Services.</h1>
        </div>
 
-       <div className="absolute inset-0 z-10 flex flex-col justify-center items-end px-6 md:px-12 lg:px-20 translate-y-85">
+       <div className="absolute inset-0 z-10 flex flex-col justify-end items-end px-6 md:px-12 lg:px-20 pb-5 md:pb-30 lg:pb-5 overflow-x-clip">
         <h1 id="attn-three"className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl  font-bold">Performance Upgrades.</h1> 
         <h1 id="attn-four"className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl  font-bold"> General Maintenance.</h1> 
 
