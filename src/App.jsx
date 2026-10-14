@@ -10,7 +10,7 @@ import Services from './components/Services';
 gsap.registerPlugin(ScrollTrigger, SplitText, ScrollSmoother);
 
 function App() {
-  const [isLoading, setIsLoading] = useState(false); //Change to true for animation
+  const [isLoading, setIsLoading] = useState(true); //Change to true for animation
 
   return (
     <main>
