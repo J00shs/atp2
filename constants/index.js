@@ -30,4 +30,15 @@ export const navLinks =[
     }
 ];
 
+export const services =[
+    {id:"brakes",title:"Brakes", content:"We provide various kinds of services for your Brakes including replacement and upgrades."
+    },
+    {id:"engine_transmission",title:"Engines and Transmissions", content:"Our quality repairs ensure your engine and transmission run as efficently and smoothly as possible."
+    },
+    {id:"suspension",title:"Suspension", content:"Keep your car riding new with our suspension repairs and upgrades"
+    },
+    {id:"tire",title:"Tires and Wheel Alignment", content:"Ensure your car is handling well by checking your alignment and tires."
+    },
+];
+
 
