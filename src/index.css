@@ -81,4 +81,13 @@ nav{
 } 
 
 
+#services {
+  scrollbar-width: none; /* Firefox */
+}
+
+#services::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+
+
 
