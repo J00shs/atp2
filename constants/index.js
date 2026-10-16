@@ -39,6 +39,8 @@ export const services =[
     },
     {id:"tire",title:"Tires and Wheel Alignment", content:"Ensure your car is handling well by checking your alignment and tires.", image_source:"services/tire.png", alt_text:"suspension image"
     },
+    {id:"test",title:"Test Category", content:"Test Category", image_source:"services/tire.png", alt_text:"suspension image"
+    },
 ];
 
 
