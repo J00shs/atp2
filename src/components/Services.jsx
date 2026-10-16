@@ -78,7 +78,7 @@ const Services = () => {
     ">
         {services.map((service, index) =>(
             <div key={service.id} id={service.id}
-            className="service-card shrink-0 self-start w-[85vw] sm:w-[400px] snap-center rounded-xl bg-white/10 p-8 text-white">
+            className="service-card shrink-0 self-start w-[85vw] sm:w-[400px] lg:w-[450px] xl:w-[500px] snap-center rounded-xl bg-white/10 p-8 text-white">
             <div className='service-content relative'>
                 <img src={service.image_source} alt={service.alt_text} className='w-8 pb-2'/>
                 <h2 className="mb-4 text-3xl font-bold">{service.title}</h2>
