@@ -3,9 +3,12 @@ import React, { useRef } from 'react'
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import {services} from '/constants/index.js'
+import { Link } from "react-router";
+
 const Services = () => {
     const trackRef = useRef(null)
     const carRef = useRef(null)
+    //TODO - vertical scrolling
 
     useGSAP(() =>{
         const scroller = document.querySelector("#services");
@@ -14,7 +17,7 @@ const Services = () => {
         let tl = gsap.timeline({
             scrollTrigger:{
                 trigger:"#services",
-                markers:true,
+                markers:false,
                 start:"top 80%",
                 toggleActions: "play none none reverse",
             }
@@ -37,26 +40,25 @@ const Services = () => {
                 x:carPosition
             })
 
-            if (direction !== 0) {
-             gsap.to(".service-card", {
-                rotation: direction > 0 ? -2 : 2,
-                duration: 0.15,
-                ease: "power2.out",
-                overwrite: "auto"
-            });
-        }
+        //     if (direction !== 0) {
+        //      gsap.to(".service-card", {
+        //         rotation: direction > 0 ? -2 : 2,
+        //         duration: 0.15,
+        //         ease: "power2.out",
+        //         overwrite: "auto"
+        //     });
+        // }
             previousScroll = currentScroll;
         };
-        const handleScrollEnd = () => {
-            gsap.to(".service-card", {
-                rotation: 0,
-                duration: 0.3,
-                ease: "elastic.out(1, 0.5)",
-                overwrite: "auto"
-            });
-        };
+        // const handleScrollEnd = () => {
+        //     gsap.to(".service-card", {
+        //         rotation: 0,
+        //         duration: 0.3,
+        //         ease: "elastic.out(1, 0.5)",
+        //         overwrite: "auto"
+        //     });
+        // };
         scroller.addEventListener("scroll", handleScroll, { passive: true });
-        scroller.addEventListener("scrollend", handleScrollEnd);
     });
 
 
@@ -78,12 +80,13 @@ const Services = () => {
     ">
         {services.map((service, index) =>(
             <div key={service.id} id={service.id}
-            className="service-card shrink-0 self-start w-[85vw] sm:w-[400px] lg:w-[450px] xl:w-[500px] snap-center rounded-xl bg-white/10 p-8 text-white">
+            className="service-card shrink-0 w-[85vw] sm:w-[400px] lg:w-[450px] xl:w-[500px] snap-center rounded-xl bg-white/10 p-8 text-white">
             <div className='service-content relative'>
                 <img src={service.image_source} alt={service.alt_text} className='w-8 pb-2'/>
                 <h2 className="mb-4 text-3xl font-bold">{service.title}</h2>
                 <p>{service.content}</p>
-                <a href="#">Read More</a>
+                {/* <a href="#">Read More</a> */}
+                <Link to={`/services/${service.id}`}>Read More</Link>
                
             </div>
             </div>

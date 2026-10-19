@@ -1,6 +1,7 @@
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react'
 import { useState, useEffect, useRef } from 'react';
+import { Link } from "react-router";
 
 import {navLinks} from '../../constants/index.js';
 
@@ -34,14 +35,14 @@ const Navbar = () => {
     useGSAP(() => {
         gsap.from("#logo", {
             ease: "power1.out",
-            duration: 0.5,
+            duration: 0.7,
             y: -200,
             opacity: 0})
         gsap.from("#nav-links",{
                 ease:"power1.in",
                 y:200,
                 opacity:0,
-                duration:0.5
+                duration:0.7
         })
         // Hover animation for navbar elements
         gsap.utils.toArray(".nav-link").forEach(element =>{
@@ -75,9 +76,7 @@ const Navbar = () => {
         <ul id="nav-links">
                 {navLinks.map((link)=>(
                     <li key={link.id} className="nav-link relative px-2 py-1 group ">
-                        <a href={`#${link.id}`}
-                        onClick={(e) => handleLinkClick(e, link)}
-                        >{link.title}</a>
+                        <Link to={`${link.path}`}>{link.title}</Link>
                         {/* If link has sub-links, render it */}
                         {link.subLinks &&(
                             <ul id="navbar-sublinks" className={activeDropdown === link.id ? 'open' : ''}>
@@ -85,9 +84,8 @@ const Navbar = () => {
                                     <li key={subLink.id}
                                     onClick={() => setActiveDropdown(null)}
                                     >
-                                        <a href={`#${subLink.id}`}>{subLink.title}</a>
+                                        <Link to={`/services/${subLink.id}`}>{subLink.title}</Link>
                                     </li>
-                                    
                                 ))}
                             </ul>
                         )

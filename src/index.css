@@ -5,10 +5,44 @@
 @theme {
     --font-sans: "Saira Condensed", sans-serif;
 }
-body{
+
+html{
     background-color: black;
-    color: white
+    color: white;
+    scroll-behavior:smooth;
 }
+
+/* #services-main, #appointment {
+    background:linear-gradient(
+        90deg,
+    #002E5D 0%,
+    #002E5D 30%,
+    #2774ae 50%,
+    #002E5D 70%,
+    #002E5D 100%
+    );
+    background-size: 300% 100%;
+    animation: gradientMove 8s ease-in-out infinite alternate;
+} */
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animated-gradient {
+    animation: none;
+  }
+}
+
+
+/* bg-linear-to-r from-[#002E5D] via-[#002E5D] to-[#2774ae]  */
 
 
 /* html,
