@@ -76,7 +76,7 @@ const Navbar = () => {
         <ul id="nav-links">
                 {navLinks.map((link)=>(
                     <li key={link.id} className="nav-link relative px-2 py-1 group ">
-                        <Link to={`${link.path}`}>{link.title}</Link>
+                        <Link to={`${link.path}`}  onClick={(e) => handleLinkClick(e, link)}>{link.title}</Link>
                         {/* If link has sub-links, render it */}
                         {link.subLinks &&(
                             <ul id="navbar-sublinks" className={activeDropdown === link.id ? 'open' : ''}>
