@@ -12,6 +12,9 @@ html{
     scroll-behavior:smooth;
 }
 
+
+
+
 /* #services-main, #appointment {
     background:linear-gradient(
         90deg,
@@ -123,5 +126,20 @@ nav{
   display: none; /* Chrome, Safari, Edge */
 }
 
+#page_content{
+     background: linear-gradient(180deg in oklch, oklch(20.08% 0.1047 265.78) 0.0%, oklch(39.37% 0.0813 234.08) 25.0%, oklch(56.70% 0.0977 208.73) 50.0%, oklch(70.87% 0.1207 203.44) 75.0%, oklch(80.71% 0.1378 206.60) 100.0%);
+}
+.slide{
+    @apply w-full shrink-0 flex items-center justify-center px-5
+}
+.service_cards{
+    @apply bg-black rounded-2xl  p-6 md:p-10 w-full max-w-7xl;
+}
 
+.service_cards_h1{
+    @apply text-3xl md:text-5xl lg:text-6xl font-bold
+}
 
+.service_cards_text{
+    @apply md:text-lg lg:text-2xl max-w-4xl mt-6;
+}

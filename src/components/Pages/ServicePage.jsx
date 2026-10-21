@@ -1,74 +1,74 @@
 import React, { use } from 'react'
+import { useGSAP } from '@gsap/react';
+import gsap from "gsap";
 import { useParams } from "react-router";
 import { serviceInfo } from '../../../constants/index.js';
 
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { SplitText } from "gsap/SplitText";
 //TODO - Make everything get bigger for larger screens
 
 const ServicePage = () => {
-    const {serviceId} = useParams();
-    const service = serviceInfo.find((item) => item.id === serviceId);
- 
+  const { serviceId } = useParams();
+  const service = serviceInfo.find((item) => item.id === serviceId);
+
+  useGSAP(() => {
+    // gsap.to("#service_card_one",{
+    //   yPercent: -100,
+    //   duration:1,
+    //   ease:"none"
+    // })
+    let sections = gsap.utils.toArray("#service_card");
+    console.log(sections)
+
+    const tl = gsap.timeline({
+      scrollTrigger:{
+        trigger:"#page_content",
+        pin:true, //What does this mean?
+        scrub: 0.5,//what does this mean?
+        start: "top top",
+        end: "+=1000",
+        markers: true
+      }
+    })
+
+    tl.to("#service_card_one",{
+      xPercent:-150,
+      ease:"none"
+    })
+    tl.to("#service_card_two",{
+      xPercent: -150,
+      ease:"none"
+    })
+
+  });
   return (
-    <div>
-        <div id="service_div" className="flex flex-col lg:flex-row pt-50 lg:pt-55 px-5 gap-10">
-          <div className="flex flex-col gap-6">
-          <h1 id="title_one" className='font-bold text-2xl lg:text-5xl '>{service.titleOne}</h1>
-          <p id="service_p1" className="lg:text-lg w-full max-w-xl">{service.p1}</p>
-          <ul id="service_items">
-            {service.list_one.map((s)=>
-             <li>&#8226;{s}</li>
-            )}
-          </ul>
+    <div id="page_content" className='w-full h-screen overflow-hidden'>
+      <div id="content_section" className='relative flex h-full items-center justify-center'>
+          <div id="service_card_one" className="service_cards absolute z-11">
+            <h1 className='service_cards_h1'>{service.titleOne}</h1>
+            <p className="service_cards_text">{service.p1}</p>   {/* w-full, max-w-4xl help with paragraph sizing */}
+            <ul className='service_cards_text'>
+              {service.list_one.map((s, index) =>
+                <li key={index}>&#8226;{s}</li>
+              )}
+            </ul>
           </div>
-            <img id="img_one" src="/images/brakes_image.png" alt="brakes" className='self-center lg:ml-auto w-full max-w-80 h-60 object-cover rounded-lg'></img> 
-        </div>
 
-        <div id="service_div_two" className="flex flex-col lg:flex-row-reverse pt-15 px-5">
-           <div className="flex flex-col gap-6 lg:items-end">
-            <h1 className='font-bold text-2xl lg:text-5xl'>{service.titleTwo}</h1>
-            <p id="service_p2" className="lg:text-lg w-full max-w-xl" >{service.p2}</p>
-            <ul id="service_items_two" className='self-start'>
-            {service.list_two.map((s)=>
-             <li>&#8226;{s}</li>
-            )}
-          </ul>
-           </div>
-           <img id="img_one" src="/images/brakes_image.png" alt="brakes" className='lg:self-start mr-auto w-full max-w-80 h-60 object-cover rounded-lg'></img> 
-        </div>
-
-         
-        
-
-
-        {/* <h1>{service.titleTwo}</h1>
-        <p>{service.p2}</p>
-    
-        <h1>{service.titleThree}</h1>
-        <p>{service.p3}</p> */}
-
+          <div id="service_card_two" className="service_cards absolute z-10">
+            <h1 className='service_cards_h1'>{service.titleTwo}</h1>
+            <p className="service_cards_text">{service.p2}</p>
+            <ul className='service_cards_text'>
+              {service.list_two.map((s, index) =>
+                <li key={index}>&#8226;{s}</li>
+              )}
+            </ul>
+          </div>
+           <h1 className='text-6xl'>Schedule an Appointment Now</h1>
+      </div>
     </div>
+
   )
 }
 
 export default ServicePage
-
-
-//  <div className="flex flex-row gap-10 px-10 pt-50 ">
-//             <h1 className="
-//             text-white text-2xl self-start
-//             md:text-3xl 
-//             lg:text-5xl ">{service.titleOne}</h1>
-//             <img src="/images/brakes_image.png" alt="brakes" className="
-//             self-center object-cover max-w-lg w-75 h-90
-//             md:self-end
-//             lg:w-full lg:h-90 
-//             rounded-2xl"/>
-
-//              <p className=' 
-//              w-full
-//              max-w-2xl
-//              self-center
-//              md:text-2xl
-//              lg:max-w-2xl lg:text-3xl lg:self-start
-//              '>{service.p1}</p>
-//         </div>
