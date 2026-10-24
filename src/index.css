@@ -163,7 +163,13 @@ nav {
 }
 
 #page_content {
-    @apply bg-linear-to-r from-[#002E5D] via-[#002E5D] to-[#2774ae];
+    background: linear-gradient(180deg in oklch, oklch(3.99% 0.0236 283.29) 0.0%, oklch(16.00% 0.0563 256.79) 25.0%, oklch(26.52% 0.0845 254.03) 50.0%, oklch(32.27% 0.0978 252.42) 75.0%, oklch(36.62% 0.0953 246.52) 100.0%);
+
+    @media (color-gamut: p3) {
+        background: linear-gradient(180deg in oklch, oklch(0.00% 0.0528 263.67) 0.0%, oklch(15.96% 0.0723 256.11) 25.0%, oklch(26.51% 0.0952 253.88) 50.0%, oklch(32.27% 0.1082 252.33) 75.0%, oklch(36.61% 0.1237 246.46) 100.0%);
+    }
+
+    /* @apply bg-linear-to-r from-[#002E5D] via-[#002E5D] to-[#2774ae]; */
 }
 
 .service_cards {

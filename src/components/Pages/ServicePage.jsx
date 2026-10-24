@@ -12,9 +12,6 @@ const ServicePage = () => {
   const service = serviceInfo.find((item) => item.id === serviceId);
 
   useGSAP(() => {
-    let sections = gsap.utils.toArray("#service_card");
-    console.log(sections)
-
     const tl = gsap.timeline({
       scrollTrigger:{
         trigger:"#page_content",
@@ -65,9 +62,13 @@ const ServicePage = () => {
             </ul>
           </div>
            <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center px-4'>Schedule an Appointment Now</h1>
-           <img src="/images/shop2.png" alt="shop image" id="shop_image" className="invisible absolute inset-x-0 mx-auto top-[55%] h-auto w-[90%] max-w-4xl max-h-[40dvh] object-contain sm:w-[80%] md:w-[70%] lg:w-[60%]" />
+           <img src="/images/shop2.png" alt="shop image" id="shop_image" className="invisible absolute inset-x-0 mx-auto top-[60%] h-auto w-[90%] max-w-4xl max-h-[40dvh] object-contain sm:w-[80%] md:w-[70%] lg:w-[60%]" />
+           <img src="/images/m3gtr.png" alt="shop image" id="car_one" className="invisible absolute inset-x-0 mx-auto top-[71%] h-auto w-[60%] max-w-3xl max-h-[40dvh] object-contain sm:w-[40%] md:w-[50%] lg:w-[20%]" />
+           <img src="/images/infinitiq50.png" alt="shop image" id="car_two" className="invisible absolute inset-x-0 mx-auto top-[71%] h-auto w-[60%] max-w-3xl max-h-[40dvh] object-contain sm:w-[40%] md:w-[50%] lg:w-[20%]" />
+           <img src="/images/bmwm3.png" alt="shop image" id="car_three" className="invisible absolute inset-x-0 mx-auto top-[71%] h-auto w-[60%] max-w-3xl max-h-[40dvh] object-contain sm:w-[40%] md:w-[50%] lg:w-[20%]" />
+            <img src="/images/e63.png" alt="shop image" id="car_four" className="invisible absolute inset-x-0 mx-auto top-[71%] h-auto w-[60%] max-w-3xl max-h-[40dvh] object-contain sm:w-[40%] md:w-[50%] lg:w-[20%]" />
       </div>
-    </div>
+      </div>
 
   )
 }
