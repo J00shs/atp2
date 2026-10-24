@@ -55,9 +55,11 @@ export const services =[
 export const serviceInfo = [
     {id:"brakes", 
         titleOne:"Brake Services You Can Trust",
-        p1:"Are your brakes making strange noises or not stopping like they used to? Auto Tech Pitstop is here to help with reliable brake services in Queens and Long Island. Whether it's a routine inspection or a complete brake system overhaul, our experienced team ensures your vehicle stays safe on the road. We offer a wide range of brake services, including: \u2022Inspections \u2022Brake pad replacement \u2022Rotor replacement \u2022Brake flush \u2022Brake bleed \u2022Metal brake line replacement \u2022Master cylinder and brake booster", 
+        p1:"Are your brakes making strange noises or not stopping like they used to? \nAuto Tech Pitstop is here to help with reliable brake services in Queens and Long Island. Whether it's a routine inspection or a complete brake system overhaul, our experienced team ensures your vehicle stays safe on the road. We offer a wide range of brake services, including:", 
+        list_one:["Inspections","Brake Pad Replacement", "Rotor Replacement","Brake Flush","Brake Bleed","Metal Brake Line Replacement", "Master Cylinder and Brake Booster"],
         titleTwo:"Is It Time for Brake Service? ", 
-        p2:"Knowing when to get your brakes checked can prevent costly repairs and keep you safe. Here are some signs that you might need brake services:\u2022Squeaking or grinding noises when braking \u2022Vehicle pulling to one side when braking \u2022Brake pedal feels soft or spongy \u2022Longer stopping distances \u2022Brake warning light on your dashboard \u2022Vibration in the steering wheel when braking", 
+        p2:"Knowing when to get your brakes checked can prevent costly repairs and keep you safe. Here are some signs that you might need brake services:", 
+        list_two:["Squeaking or Grinding Noises When Braking", "Vehicle Pulling To One Side When Braking","Brake Pedal Feels Soft Or Spongy", "Longer Stopping Distances","Brake Warning Light On Your Dashboard","Vibration In The Steering Wheel When Braking"],
         titleThree:"Third Title", 
         p3:"paragraph 3"},
     {id:"engine_transmission", 

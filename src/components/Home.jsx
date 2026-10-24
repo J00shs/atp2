@@ -5,8 +5,9 @@ import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from "gsap/SplitText";
 
-// gsap.registerPlugin(ScrollTrigger, useGSAP);
 
+
+// TODO - Fix homepage fade-in animation, animate attn-three and four
 const Home = () => {
   const videoRef = useRef(null);
 
@@ -24,20 +25,21 @@ const Home = () => {
       x: -80,
       stagger:0.02
     })
-
-    gsap.from("#hero-home",{
-            ease:"power1.in",
-            duration: 1,
-            opacity: 0
-        })
+    // Source of fade-in issue
+    // gsap.from("#hero-home",{
+    //         ease:"power1.in",
+    //         duration: 1,
+    //         opacity: 0
+    //     });
     
     let tl = gsap.timeline({
       scrollTrigger: {
-        trigger: video,
+        trigger: "#hero-home",
         start: "top top",
-        end: "+=1200",
+        end: "bottom 20%",
         scrub: 0.5,
         pin: true,
+        invalidateOnRefresh:true,
         markers:false //allows you to debug
       }
     });
@@ -91,6 +93,8 @@ const Home = () => {
       video.addEventListener("loadedmetadata", setupAnimation, { once: true });
     }
 
+    ScrollTrigger.refresh();
+
     return () => {
       video.removeEventListener("loadedmetadata", setupAnimation);
     };
@@ -99,7 +103,7 @@ const Home = () => {
   return (
     <>
       <section id="hero-home" className="relative h-[100svh]">
-        <div className="absolute flex inset-0 items-center justify-center">
+        <div id="home-div" className="absolute flex inset-0 items-center justify-center" >
           <video
             ref={videoRef}
             muted
