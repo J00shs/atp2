@@ -70,7 +70,7 @@ const Navbar = () => {
              
     });
   return (
-    <nav ref={navRef}>
+    <nav id="navigation-bar" ref={navRef}>
         <div className="flex flex-col items-center">
              <img src="/images/atplogo.svg" alt="logo" id="logo" />
         <ul id="nav-links">

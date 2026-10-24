@@ -10,8 +10,8 @@ import Services from './components/Services';
 import ServicePage from './components/Pages/ServicePage';
 gsap.registerPlugin(ScrollTrigger, SplitText, ScrollSmoother, DrawSVGPlugin);
 import { Routes, Route } from "react-router";
+import Background_Animation from './components/Background_Animation';
 
-// TODO - Make loading animation appear for the initial visit
 
 function App() {
   const [isLoading, setIsLoading] = useState(true); //Change to true for animation
@@ -30,8 +30,10 @@ function App() {
             element={
               <>
                 <Home />
+              
                 <Book_Now />
-                <Services />
+                < Services />
+                <Background_Animation/>
               </>
             }
           />
