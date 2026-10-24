@@ -172,7 +172,7 @@ nav {
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     -webkit-backdrop-filter: blur(20px);
-     backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
     @apply rounded-2xl p-4 sm:p-6 md:p-10 w-[88%] lg:w-[80%] max-w-7xl max-h-[85dvh] overflow-y-auto;
 }
 
