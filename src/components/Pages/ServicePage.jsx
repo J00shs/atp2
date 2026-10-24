@@ -6,8 +6,7 @@ import { serviceInfo } from '../../../constants/index.js';
 
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from "gsap/SplitText";
-//TODO - Make everything get bigger for larger screens
-
+//TODO - Change background color to night theme. Racing cars 
 const ServicePage = () => {
   const { serviceId } = useParams();
   const service = serviceInfo.find((item) => item.id === serviceId);
@@ -19,11 +18,17 @@ const ServicePage = () => {
     const tl = gsap.timeline({
       scrollTrigger:{
         trigger:"#page_content",
-        pin:true, //What does this mean?
-        scrub: 0.5,//what does this mean?
+        pin:true, 
+        scrub: 0.5,
         start: "top top",
         end: "+=1000",
-        markers: true
+        markers: true,
+        onEnterBack: () => gsap.to("#shop_image",{
+          autoAlpha:0,
+        }),
+        onLeave: () => gsap.to("#shop_image",{
+          autoAlpha:1,
+        })
       }
     })
 
@@ -60,6 +65,7 @@ const ServicePage = () => {
             </ul>
           </div>
            <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center px-4'>Schedule an Appointment Now</h1>
+           <img src="/images/shop2.png" alt="shop image" id="shop_image" className="invisible absolute inset-x-0 mx-auto top-[55%] h-auto w-[90%] max-w-4xl max-h-[40dvh] object-contain sm:w-[80%] md:w-[70%] lg:w-[60%]" />
       </div>
     </div>
 
