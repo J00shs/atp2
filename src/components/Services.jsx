@@ -15,10 +15,8 @@ const Services = () => {
 
 
 
-        const getDistance = () => Math.max(0, cards.clientWidth - section.clientWidth);
-
-        // while(prevScrollpos){
-        // console.log(prevScrollpos)}
+        // TODO - fix scrolling issue
+        const getDistance = () => Math.max(0, cards.scrollWidth - section.clientWidth) + 350;
 
         const tl = gsap.timeline();
 
@@ -33,11 +31,11 @@ const Services = () => {
                 start: "top top",
                 pin: true,
                 end: () => `+=${getDistance()}`,
-                // end: "max",
                 scrub: 1.5,
                 invalidateOnRefresh: true,
                 onEnter: () => gsap.to("#navigation-bar", {
-                    opacity:0
+                    opacity:0,
+                    duration:0.1,
                 }),
                 onLeaveBack: () => gsap.to("#navigation-bar", {
                     opacity:1

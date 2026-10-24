@@ -13,11 +13,6 @@ const ServicePage = () => {
   const service = serviceInfo.find((item) => item.id === serviceId);
 
   useGSAP(() => {
-    // gsap.to("#service_card_one",{
-    //   yPercent: -100,
-    //   duration:1,
-    //   ease:"none"
-    // })
     let sections = gsap.utils.toArray("#service_card");
     console.log(sections)
 
@@ -43,9 +38,9 @@ const ServicePage = () => {
 
   });
   return (
-    <div id="page_content" className='w-full h-screen overflow-hidden'>
+    <div id="page_content" className='w-full h-dvh overflow-hidden'>
       <div id="content_section" className='relative flex h-full items-center justify-center'>
-          <div id="service_card_one" className="service_cards absolute z-11">
+          <div id="service_card_one" className="service_cards absolute z-11 mt-15">
             <h1 className='service_cards_h1'>{service.titleOne}</h1>
             <p className="service_cards_text">{service.p1}</p>   {/* w-full, max-w-4xl help with paragraph sizing */}
             <ul className='service_cards_text'>
@@ -64,7 +59,7 @@ const ServicePage = () => {
               )}
             </ul>
           </div>
-           <h1 className='text-6xl'>Schedule an Appointment Now</h1>
+           <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center px-4'>Schedule an Appointment Now</h1>
       </div>
     </div>
 

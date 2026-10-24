@@ -39,6 +39,7 @@ const Home = () => {
         end: "bottom 20%",
         scrub: 0.5,
         pin: true,
+        invalidateOnRefresh:true,
         markers:false //allows you to debug
       }
     });
