@@ -1,64 +1,78 @@
 @import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 @import "tailwindcss";
 
 @theme {
-    --font-sans: "Saira Condensed", sans-serif;
+    --font-sans: "Barlow Condensed", sans-serif;
 }
 
 html {
     background-color: black;
     color: white;
     scroll-behavior: smooth;
+    /* @apply bg-linear-to-r from-[#002E5D] via-[#002E5D] to-[#2774ae]; */
+}
+
+::view-transition-group(navbar) {
+    animation: none;
+    z-index: 100;
 }
 
 
-
-
-/* #services-main, #appointment {
-    background:linear-gradient(
-        90deg,
-    #002E5D 0%,
-    #002E5D 30%,
-    #2774ae 50%,
-    #002E5D 70%,
-    #002E5D 100%
-    );
-    background-size: 300% 100%;
-    animation: gradientMove 8s ease-in-out infinite alternate;
-} */
-
-@keyframes gradientMove {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    100% {
-        background-position: 100% 50%;
-    }
+::view-transition-old(navbar) {
+    display: none;
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .animated-gradient {
-        animation: none;
+::view-transition-new(navbar) {
+    animation: none;
+}
+
+::view-transition-group(home) {
+    animation: none;
+}
+
+::view-transition-group(.page-enter) {
+    animation: 1000ms cubic-bezier(0.75, 0, 0.1, 1) both page-in;
+    z-index: 1;
+}
+
+::view-transition-group(.page-exit) {
+    animation: 1000ms cubic-bezier(0.75, 0, 0.1, 1) both page-out;
+    z-index: 1;
+}
+
+
+@keyframes page-out {
+    from {
+        transform: translateY(0%);
+        opacity: 1;
     }
+
+    to {
+        transform: translateY(-25%);
+        opacity: 0.25;
+    }
+
+}
+
+@keyframes page-in {
+    from {
+        transform: translateY(25%);
+        clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+    }
+
+    to {
+        transform: translateY(0%);
+        opacity: 1;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+
 }
 
 
 /* bg-linear-to-r from-[#002E5D] via-[#002E5D] to-[#2774ae]  */
 
-
-/* html,
-body {
-    width: 100%;
-    min-height: 100vh;
-    background: black;
-    color:white;
-    scroll-behavior: smooth;
-    overflow-x: hidden;
-    background-size: cover;
-    background-repeat: no-repeat;
-} */
 
 @utility flex-center {
     @apply flex items-center justify-center min-h-screen;
@@ -163,7 +177,13 @@ nav {
 }
 
 #page_content {
-    @apply bg-linear-to-r from-[#002E5D] via-[#002E5D] to-[#2774ae];
+    background: linear-gradient(180deg in oklch, oklch(3.99% 0.0236 283.29) 0.0%, oklch(16.00% 0.0563 256.79) 25.0%, oklch(26.52% 0.0845 254.03) 50.0%, oklch(32.27% 0.0978 252.42) 75.0%, oklch(36.62% 0.0953 246.52) 100.0%);
+
+    @media (color-gamut: p3) {
+        background: linear-gradient(180deg in oklch, oklch(0.00% 0.0528 263.67) 0.0%, oklch(15.96% 0.0723 256.11) 25.0%, oklch(26.51% 0.0952 253.88) 50.0%, oklch(32.27% 0.1082 252.33) 75.0%, oklch(36.61% 0.1237 246.46) 100.0%);
+    }
+
+    /* @apply bg-linear-to-r from-[#002E5D] via-[#002E5D] to-[#2774ae]; */
 }
 
 .service_cards {
@@ -180,6 +200,86 @@ nav {
     @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold;
 }
 
+.progress-bar-wrapper {
+    /* From https://css.glass */
+    background: rgba(0, 0, 0, 0.51);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(19.1px);
+    -webkit-backdrop-filter: blur(19.1px);
+    @apply bottom-10 absolute flex justify-center h-2.5 w-[80%] overflow-hidden rounded-full text-xs z-10
+}
+
+.progress {
+    transform-origin: left;
+    animation:
+        scaleProgress auto linear,
+        colorChange auto linear;
+    animation-timeline: scroll(root);
+}
+
+
+@keyframes scaleProgress {
+
+    0% {
+        transform: scaleX(0);
+    }
+
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes colorChange {
+    0% {
+        background-color: rgba(240, 240, 240, 0.624);
+    }
+     100% {
+        background-color: rgba(240, 240, 240, 0.624);
+    }
+}
+
 .service_cards_text {
     @apply text-sm sm:text-base md:text-lg xl:text-2xl mt-3 md:mt-6;
+}
+
+#scene {
+    aspect-ratio: 16/9;
+}
+
+#service_btn {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    margin-top: 35px;
+    @apply px-7 py-3 sm:px-10 md:px-12 md:py-4 lg:px-15 text-lg sm:text-xl md:text-5xl lg:text-3xl font-semibold text-white;
+}
+
+#shop_image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* inset: 0; */
+}
+
+#car_one {
+    position: absolute;
+    width: 54%;
+    height: auto;
+    left: 6%;
+    bottom: -25%;
+
+}
+
+#car_two,
+#car_three,
+#car_four {
+    position: absolute;
+    width: 54%;
+    height: auto;
+    left: 6%;
+    bottom: -20%;
 }
