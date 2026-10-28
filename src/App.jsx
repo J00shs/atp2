@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useLayoutEffect } from 'react'
 import LoadingHero from './components/loadingHero'
 
 import gsap from 'gsap';
@@ -10,43 +10,53 @@ import Services from './components/Services';
 import ServicePage from './components/Pages/ServicePage';
 gsap.registerPlugin(ScrollTrigger, SplitText, ScrollSmoother, DrawSVGPlugin);
 import { Routes, Route } from "react-router";
-import Background_Animation from './components/Background_Animation';
+import { ViewTransition } from 'react';
 
 
 function App() {
   const [isLoading, setIsLoading] = useState(true); //Change to true for animation
 
   return (
-  <main>
-    {isLoading ? (
-      <LoadingHero onComplete={() => setIsLoading(false)} />
-    ) : (
-      <>
-        <Navbar />
+    <main>
+      
+      {isLoading ? (
+        <LoadingHero onComplete={() => setIsLoading(false)} />
+      ) : (
+        <>
+          <Navbar />
+          <Routes>
+          
+            <Route
+              path="/"
+              element={
+                <>
+                 
+                  <Home />
 
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Home />
-              
-                <Book_Now />
-                < Services />
-                <Background_Animation/>
-              </>
-            }
-          />
+                  <Book_Now />
+                  <Services />
+          
+                 
 
-          <Route
-            path="/services/:serviceId"
-            element={<ServicePage />}
-          />
-        </Routes>
-      </>
-    )}
-  </main>
-);
+                </>
+                
+              }
+            />
+            
+            <Route
+              path="/services/:serviceId"
+              element={<ViewTransition enter="page-enter" exit="page-exit" default="none"><ServicePage /></ViewTransition>}
+            />
+           
+          </Routes>
+         
+
+
+
+        </>
+      )}
+    </main>
+  );
 }
 
 export default App

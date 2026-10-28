@@ -102,7 +102,7 @@ const Home = () => {
 
   return (
     <>
-      <section id="hero-home" className="relative h-[100svh]">
+      <section id="hero-home" className="relative h-[100svh]" style={{viewTransitionName:"home"}}>
         <div id="home-div" className="absolute flex inset-0 items-center justify-center" >
           <video
             ref={videoRef}
@@ -110,17 +110,17 @@ const Home = () => {
             preload="auto"
             playsInline
 
-            className="w-full h-full object-cover object-center -z-1"
+            className="w-full h-full object-cover object-center "
           >
             <source src="/videos/bmw-intro.mp4" />
           </video>
         </div>
-       <div className="absolute inset-0 z-10 flex flex-col justify-center px-6 md:px-12 lg:px-20">
+       <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-12 lg:px-20">
         <h1 id="attn-one"className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl  font-bold">Expert Auto Repair.</h1>
         <h1 id="attn-two"className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold"> Quality Services.</h1>
        </div>
 
-       <div className="absolute inset-0 z-10 flex flex-col justify-end items-end px-6 md:px-12 lg:px-20 pb-5 md:pb-30 lg:pb-5 overflow-x-clip">
+       <div className="absolute inset-0 flex flex-col justify-end items-end px-6 md:px-12 lg:px-20 pb-5 md:pb-30 lg:pb-5 overflow-x-clip">
         <h1 id="attn-three"className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl  font-bold">Performance Upgrades.</h1> 
         <h1 id="attn-four"className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl  font-bold"> General Maintenance.</h1> 
 

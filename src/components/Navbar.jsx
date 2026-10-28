@@ -1,7 +1,7 @@
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react'
 import { useState, useEffect, useRef } from 'react';
-import { Link } from "react-router";
+import { Link, useLocation} from "react-router";
 
 import {navLinks} from '../../constants/index.js';
 
@@ -69,8 +69,8 @@ const Navbar = () => {
         })
              
     });
-  return (
-    <nav id="navigation-bar" ref={navRef}>
+  return ( 
+    <nav id="navigation-bar" ref={navRef} style={{viewTransitionName:"navbar"}}>
         <div className="flex flex-col items-center">
              <img src="/images/atplogo.svg" alt="logo" id="logo" />
         <ul id="nav-links">
