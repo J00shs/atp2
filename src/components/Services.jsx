@@ -27,7 +27,7 @@ const Services = () => {
             ease: "none",
             scrollTrigger: {
                 trigger: section,
-                markers: true,
+                markers: false,
                 //element, viewport
                 start: "-=200 top",
                 pin: true,

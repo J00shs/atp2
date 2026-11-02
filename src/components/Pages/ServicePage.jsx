@@ -97,7 +97,7 @@ const ServicePage = () => {
         scrub: 0.8,
         start: "top top",
         end: "+=1000",
-        markers: true,
+        markers: false,
         invalidateOnRefresh:true,
         onUpdate: (self) => { console.log("progress: ", self.progress) },
         onEnterBack: () => {
