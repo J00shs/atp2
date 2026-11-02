@@ -11,10 +11,11 @@ import ServicePage from './components/Pages/ServicePage';
 gsap.registerPlugin(ScrollTrigger, SplitText, ScrollSmoother, DrawSVGPlugin);
 import { Routes, Route } from "react-router";
 import { ViewTransition } from 'react';
+import Models from './components/Models';
 
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true); //Change to true for animation
+  const [isLoading, setIsLoading] = useState(false); //Change to true for animation
 
   return (
     <main>
@@ -33,8 +34,10 @@ function App() {
                  
                   <Home />
 
-                  <Book_Now />
+                  <Book_Now/>
+                  <Models/>
                   <Services />
+                
           
                  
 

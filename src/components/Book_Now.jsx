@@ -6,6 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from "gsap/SplitText";
 import { useState, useEffect, useRef } from 'react';
 import React from 'react'
+import { Link } from "react-router";
 
 const Book_Now = () => {
 
@@ -46,9 +47,9 @@ const Book_Now = () => {
   return (
 
 
-    <section id="appointment" className="bg-linear-to-r from-[#002E5D] via-[#002E5D] to-[#2774ae]  rounded-t-4xl w-full overflow-x-clip">
+    <section id="appointment" style={{viewTransitionName:"book_section"}}>
 
-      <div className="flex justify-center pt-10 px-8 pb-10">
+      <div className="flex justify-center pt-10 px-8">
         <div id="book_sec" className="relative w-fit">
           <button ref={buttonRef} id="book_btn" className="relative z-10 overflow-hidden whitespace-nowrap rounded-xl backdrop-blur-[8px] 
       px-7 py-3 sm:px-10 md:px-12 md:py-4 lg:px-15 
@@ -101,9 +102,12 @@ const Book_Now = () => {
               Book Now
             </span>
           </button>
+        
         </div>
       </div>
-  
+      <div className="open_times">
+         <h1 className=''>Open Mon-Sat, 9:30AM - 6PM</h1>
+      </div>
     </section>
 
   )
