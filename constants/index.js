@@ -26,12 +26,12 @@ export const navLinks = [
     {
         id: "gallery",
         title: "Gallery",
-        path: ""
+        path: "/gallery"
     },
     {
         id: "locations",
         title: "Locations",
-        path: ""
+        path: "/locations"
     }
 ];
 

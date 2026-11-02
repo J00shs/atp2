@@ -12,6 +12,8 @@ gsap.registerPlugin(ScrollTrigger, SplitText, ScrollSmoother, DrawSVGPlugin);
 import { Routes, Route } from "react-router";
 import { ViewTransition } from 'react';
 import Models from './components/Models';
+import Gallery from './components/Pages/Gallery';
+import Locations from './components/Pages/Locations';
 
 
 function App() {
@@ -35,11 +37,10 @@ function App() {
                   <Home />
 
                   <Book_Now/>
-                  <Models/>
                   <Services />
+                  <Models/>
                 
-          
-                 
+      
 
                 </>
                 
@@ -50,10 +51,19 @@ function App() {
               path="/services/:serviceId"
               element={<ViewTransition enter="page-enter" exit="page-exit" default="none"><ServicePage /></ViewTransition>}
             />
+
+            <Route 
+            path="/gallery"
+            element={<ViewTransition default="none"><Gallery/></ViewTransition>}
+          />
+          <Route
+          path="/location"
+          element={<ViewTransition default="none"><Locations/></ViewTransition>}
+          />
            
           </Routes>
          
-
+      
 
 
         </>

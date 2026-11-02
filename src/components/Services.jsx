@@ -11,13 +11,15 @@ const Services = () => {
     const carRef = useRef(null)
 
     useGSAP(() => {
-        const cards = document.querySelector("#service_overview")
-        const section = document.querySelector("#card_wrapper")
+        const cards = document.querySelector("#service_overview") //scroll container
+        const section = document.querySelector("#card_wrapper") //scroll section
 
-
+        console.log(cards.offsetWidth)
 
         // TODO - fix scrolling issue
-         const getDistance = () => Math.max(0, cards.scrollWidth - section.clientWidth);
+         const getDistance = ()=> {
+           return cards.offsetWidth - section.clientWidth;
+         }
 
         const tl = gsap.timeline();
 
@@ -27,12 +29,13 @@ const Services = () => {
             ease: "none",
             scrollTrigger: {
                 trigger: section,
-                markers: false,
+                markers: true,
                 //element, viewport
-                start: "-=200 top",
+                start: "top-=250 top",
                 pin: true,
-                end: () => `max`,
+                end: () => `+=${getDistance()}`,
                 scrub: 1,
+                anticipatePin: 1,
                 invalidateOnRefresh: true,
                 // onEnter: () => gsap.to("#navigation-bar", {
                 //     opacity:0,
@@ -65,9 +68,9 @@ const Services = () => {
       {services.map((service) => (
         <div key={service.id} className="service-cards">
           <div id="service_content" className="relative">
-            <img src={service.image_source} alt={service.alt_text} className="w-8 pb-2" />
-            <h2 className="mb-4 text-2xl font-bold sm:text-3xl">{service.title}</h2>
-            <p>{service.content}</p>
+            <img src={service.image_source} alt={service.alt_text} className="w-10 pb-3 lg:w-14" />
+            <h2 className="service_title_home">{service.title}</h2>
+            <p className="service_p">{service.content}</p>
             <Link to={`/services/${service.id}`}>Read More</Link>
           </div>
         </div>
