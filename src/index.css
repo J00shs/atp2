@@ -203,10 +203,10 @@ backdrop-filter: blur(20px);
 
 
 
-/* Cards on Home Page */
+/* Cards on Home Page
 .service-cards {
     /* From https://css.glass */
-    background: rgba(0, 0, 0, 0.37);
+    /* background: rgba(0, 0, 0, 0.37);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     -webkit-backdrop-filter: blur(9px);
@@ -219,27 +219,51 @@ backdrop-filter: blur(20px);
            md:w-[46vw] md:min-h-[clamp(300px,44dvh,440px)]
            lg:w-[clamp(540px,42vw,880px)] lg:p-10 lg:min-h-[clamp(340px,46dvh,520px)]
            xl:p-12;
+} */
+
+
+/* apply shrink-0 flex flex-col
+           w-[82vw] p-6 min-h-[clamp(260px,42dvh,380px)]
+           sm:w-[62vw] sm:p-8
+           md:w-[46vw] md:min-h-[clamp(300px,44dvh,440px)]
+           lg:w-[clamp(540px,42vw,880px)] lg:p-10 lg:min-h-[clamp(340px,46dvh,520px)]
+           xl:p-12;
+} */ 
+ 
+/* Cards on Home Page */
+.service-cards {
+    /* From https://css.glass */
+    background: rgba(0, 0, 0, 0.37);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    -webkit-backdrop-filter: blur(9px);
+    backdrop-filter: blur(9px);
+    border: 1px solid rgba(0, 0, 0, 0.6);
+    @apply flex flex-col shrink-0 w-[70vw] p-4 min-h-[clamp(230px,38dvh,380px)] sm:w-[340px] sm:p-6 lg:w-[420px] lg:p-8 xl:w-[500px];
+
 }
 
+#service_overview{
+    margin-bottom: 35px;
+    @apply flex w-max gap-12 px-6 md:gap-10 md:px-12;
+}
 
 .service-cards > div {
     @apply flex flex-1 flex-col;
 }
 
-#service_overview {
-    @apply flex w-max items-stretch gap-4 px-6 md:gap-6 md:px-12 lg:gap-10;
+
+#service_title_home{
+    
+    @apply text-3xl md:text-2xl lg:text-3xl font-bold mb-3 md:mb-6;
 }
 
-.service_title_home {
-    @apply mb-4 text-2xl font-bold sm:text-3xl lg:text-4xl;
+#service_p{
+    @apply text-lg;
 }
 
-.service_p {
-    @apply text-base lg:text-xl;
-}
-
-.service-cards a {
-    @apply mt-auto pt-6 text-base font-semibold lg:text-xl;
+#service_link{
+    @apply mt-auto pt-2 font-semibold text-lg md:text-xl;
 }
 
 #page_content {
