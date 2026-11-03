@@ -94,7 +94,7 @@ const ServicePage = () => {
       scrollTrigger: {
         trigger: "#page_content",
         pin: true,
-        scrub: 0.8,
+        scrub: 0.2,
         start: "top top",
         end: "+=1000",
         markers: false,
