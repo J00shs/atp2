@@ -24,17 +24,18 @@ const Services = () => {
         const tl = gsap.timeline();
 
 
+
         gsap.to(cards, {
             x: () => -getDistance(),
             ease: "none",
             scrollTrigger: {
                 trigger: section,
-                markers: true,
+                markers: false,
                 //element, viewport
-                start: "top-=250 top",
+                start: "top-=290 top",
                 pin: true,
                 end: () => `+=${getDistance()}`,
-                scrub: 1,
+                scrub: 0.5,
                 anticipatePin: 1,
                 invalidateOnRefresh: true,
                 // onEnter: () => gsap.to("#navigation-bar", {
@@ -57,11 +58,11 @@ const Services = () => {
 
   return (
   <section id="card_wrapper" className="overflow-hidden" style={{viewTransitionName:"service_section"}}>
-    <div className="px-6 pb-6 md:px-12">
-      <h1 className="text-3xl font-bold sm:text-4xl md:text-5xl lg:text-6xl">
+    <div className="services-heading">
+      <h1 className="text-3xl font-bold md:text-5xl lg:text-6xl">
         Our Services
       </h1>
-      <p className="mt-2 text-base md:text-lg">Backed by a 6-month warranty</p>
+      <p className="mt-2 text-base md:text-xl">Backed by a 6-month warranty</p>
     </div>
 
     <div id="service_overview" className="">

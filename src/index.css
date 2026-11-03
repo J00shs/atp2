@@ -8,11 +8,16 @@
 }
 
 html {
-    background-color: black;
+    background: #1e3c72;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2a5298, #1e3c72);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2a5298, #1e3c72); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
     color: white;
     scroll-behavior: smooth;
-    @apply bg-linear-to-r from-[#002E5D] via-[#002E5D] to-[#2774ae];
+    /* @apply bg-linear-to-r from-[#002E5D] via-[#002E5D] to-[#2774ae]; */
 }
+
+
 
 
 ::view-transition-group(navbar) {
@@ -160,8 +165,14 @@ nav {
 
 
 #appointment {
-    /* margin-top: -65px;  */
-    @apply bg-linear-to-r from-[#002E5D] via-[#002E5D] to-[#2774ae] w-full;
+    margin-top: -60px;
+    border-radius: 45px 45px 0px 0px;
+    background: #1e3c72;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2a5298, #1e3c72);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2a5298, #1e3c72); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+    @apply w-full;
 }
 
 #book_sec {
@@ -174,20 +185,20 @@ nav {
 
 #book_sec:hover {
     /* From https://css.glass */
-background: rgba(255, 255, 255, 0);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(20px);
--webkit-backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 }
 
 
-.open_times{
+.open_times {
 
     @apply relative pb-15 flex justify-center mt-5;
 }
 
-.open_times h1{
+.open_times h1 {
     @apply absolute text-2xl font-bold md:text-5xl lg:text-3xl;
 }
 
@@ -197,39 +208,10 @@ backdrop-filter: blur(20px);
     display: flex;
     flex-direction: column;
     justify-items: center;
-    /* padding-top: 15px; */
-    @apply bg-linear-to-r from-[#002E5D] via-[#002E5D] to-[#2774ae];
+
 }
 
 
-
-/* Cards on Home Page
-.service-cards {
-    /* From https://css.glass */
-    /* background: rgba(0, 0, 0, 0.37);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    -webkit-backdrop-filter: blur(9px);
-    backdrop-filter: blur(9px);
-    border: 1px solid rgba(0, 0, 0, 0.6);
-
-    @apply shrink-0 flex flex-col
-           w-[82vw] p-6 min-h-[clamp(260px,42dvh,380px)]
-           sm:w-[62vw] sm:p-8
-           md:w-[46vw] md:min-h-[clamp(300px,44dvh,440px)]
-           lg:w-[clamp(540px,42vw,880px)] lg:p-10 lg:min-h-[clamp(340px,46dvh,520px)]
-           xl:p-12;
-} */
-
-
-/* apply shrink-0 flex flex-col
-           w-[82vw] p-6 min-h-[clamp(260px,42dvh,380px)]
-           sm:w-[62vw] sm:p-8
-           md:w-[46vw] md:min-h-[clamp(300px,44dvh,440px)]
-           lg:w-[clamp(540px,42vw,880px)] lg:p-10 lg:min-h-[clamp(340px,46dvh,520px)]
-           xl:p-12;
-} */ 
- 
 /* Cards on Home Page */
 .service-cards {
     /* From https://css.glass */
@@ -239,30 +221,33 @@ backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(9px);
     backdrop-filter: blur(9px);
     border: 1px solid rgba(0, 0, 0, 0.6);
-    @apply flex flex-col shrink-0 w-[70vw] p-4 min-h-[clamp(230px,38dvh,380px)] sm:w-[340px] sm:p-6 lg:w-[420px] lg:p-8 xl:w-[500px];
+    @apply flex flex-col shrink-0 w-[70vw] p-4 min-h-[clamp(120px,38dvh,380px)] sm:w-[340px] sm:p-6 lg:w-[420px] lg:p-8 xl:w-[500px];
 
 }
 
-#service_overview{
+.services-heading{
+    @apply px-6 pb-6 md:px-12;
+}
+#service_overview {
     margin-bottom: 35px;
     @apply flex w-max gap-12 px-6 md:gap-10 md:px-12;
 }
 
-.service-cards > div {
+.service-cards>div {
     @apply flex flex-1 flex-col;
 }
 
 
-#service_title_home{
-    
+#service_title_home {
+
     @apply text-3xl md:text-2xl lg:text-3xl font-bold mb-3 md:mb-6;
 }
 
-#service_p{
+#service_p {
     @apply text-lg;
 }
 
-#service_link{
+#service_link {
     @apply mt-auto pt-2 font-semibold text-lg md:text-xl;
 }
 
@@ -283,7 +268,7 @@ backdrop-filter: blur(20px);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
-    @apply rounded-2xl p-4 sm:p-6 md:p-10 w-[88%] lg:w-[80%] max-w-7xl max-h-[85dvh] overflow-y-auto;
+    @apply rounded-2xl p-4 sm:p-6 md:p-10 w-[88%] lg:w-[80%] max-w-7xl h-[55dvh] md:h-[65dvh] overflow-y-auto;
 }
 
 .service_cards_h1 {
@@ -375,16 +360,18 @@ backdrop-filter: blur(20px);
     bottom: -20%;
 }
 
-.model_caro{
+.model_caro {
     display: flex;
     flex-direction: row;
     align-items: center;
+    /* width: 100%; */
+    justify-content: center;
     overflow-x: hidden;
 }
 
-.car_logo{
-    margin:15px;
-    width:150px;
+.car_logo {
+    margin: 15px;
+    width: 150px;
     height: auto;
     object-fit: cover;
 }

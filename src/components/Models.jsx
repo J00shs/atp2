@@ -110,13 +110,30 @@ const Models = () => {
             return tl;
         }
 
+        const tl_two = gsap.timeline();
+
+        gsap.from('#models',{
+            x:-500,
+            ease:"none",
+            duration:1,
+
+            scrollTrigger:{
+                start:"top-=450 center",
+                trigger:"#models",
+                end:"top-=100 center",
+                scrub:true,
+                markers:true,
+            }
+        })
+
+
         const logos = gsap.utils.toArray(".car_logo")
         console.log(logos)
 
         horizontalLoop(logos,{
             repeat:-1,
         })
-
+        
 
 
 
@@ -124,7 +141,7 @@ const Models = () => {
     return (
         <section id="models" className='' style={{viewTransitionName:"models_section"}}>
             <div className='flex'>
-                <h1 className='text-white text-2xl md:text-5xl font-bold p-8'>We Service A Variety Of Makes and Models</h1>
+                <h1 className=' text-white text-2xl md:text-5xl font-bold p-8'>We Service A Variety Of Makes and Models</h1>
             </div>
             <div className='model_caro'>
                 <img className="car_logo" src="/car_logos/bmw.png" alt="bmw logo" />

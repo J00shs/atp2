@@ -127,7 +127,7 @@ const ServicePage = () => {
 
     const cards = [".service_cards"];
     tl.to(cards, {
-      xPercent: -150,
+      yPercent: -400,
       ease: "none",
       stagger: 1,
     })
