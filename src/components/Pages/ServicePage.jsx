@@ -96,12 +96,12 @@ const ServicePage = () => {
         pin: true,
         scrub: 0.2,
         start: "top top",
-        end: "+=1000",
+        end: "+=900",
         markers: false,
         invalidateOnRefresh:true,
         onUpdate: (self) => { console.log("progress: ", self.progress) },
         onEnterBack: () => {
-          gsap.to(["#shop_image", "#header", "#service_btn"], {
+          gsap.to(["#service_btn"], {
             autoAlpha: 0,
           })
           for (const car in cars) {
@@ -112,7 +112,7 @@ const ServicePage = () => {
           drive.pause(0)
         },
         onLeave: () => {
-          gsap.to(["#shop_image", "#header", "#service_btn"], {
+          gsap.to(["#service_btn"], {
             autoAlpha: 1,
           })
           for (const car in cars) {
@@ -127,7 +127,7 @@ const ServicePage = () => {
 
     const cards = [".service_cards"];
     tl.to(cards, {
-      yPercent: -400,
+      yPercent: -350,
       ease: "none",
       stagger: 1,
     })
@@ -149,8 +149,8 @@ const ServicePage = () => {
 
 
         <div id="scene" className='relative'>
-          <h1 id="header" className='invisible text-2xl sm:text-4xl md:text-5xl text-center px-4'>Schedule an Appointment Today!</h1>
-          <img src="/images/shop2.png" alt="shop image" id="shop_image" className='invisible' />
+          <h1 id="header" className='visible text-2xl sm:text-4xl md:text-5xl text-center px-4'>Schedule an Appointment Today!</h1>
+          <img src="/images/shop2.png" alt="shop image" id="shop_image" className='visible' />
           <img src="/images/m3gtr.png" alt="shop image" id="car_one" className="invisible" />
           <img src="/images/e63.png" alt="Mercedes E63" id="car_two" className='invisible' />
           <img src="/images/bmwm3.png" alt="BMW M3" id="car_three" className='invisible' />

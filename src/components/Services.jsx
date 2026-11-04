@@ -30,9 +30,9 @@ const Services = () => {
             ease: "none",
             scrollTrigger: {
                 trigger: section,
-                markers: false,
+                markers: true,
                 //element, viewport
-                start: "top-=290 top",
+                start: "top-=280 top",
                 pin: true,
                 end: () => `+=${getDistance()}`,
                 scrub: 0.5,

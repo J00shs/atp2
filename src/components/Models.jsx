@@ -8,6 +8,8 @@ const Models = () => {
 
     useGSAP(() => {
 
+        let mm = gsap.matchMedia();
+
         function horizontalLoop(items, config) {
             items = gsap.utils.toArray(items);
             config = config || {};
@@ -112,36 +114,63 @@ const Models = () => {
 
         const tl_two = gsap.timeline();
 
-        gsap.from('#models',{
-            x:-500,
-            ease:"none",
-            duration:1,
-
+        gsap.to("#models",{
+            // duration:1.5,
+            clipPath: "ellipse(150% 150% at 50% 100%)",
             scrollTrigger:{
-                start:"top-=450 center",
                 trigger:"#models",
-                end:"top-=100 center",
+                // start:"top-=300 center"
+                start:"top-=215 top",
+                 end:"+=500",
                 scrub:true,
                 markers:true,
             }
         })
 
+        // tl_two.to("#models",{
+        //     // clipPath: "ellipse(150% 150% at 50% 100%)",
+        //     yPercent:0
+        // })
+
+        // gsap.fromTo('#models',{
+        //     ease:"none",
+        //     scrollTrigger:{
+        //         start:"top-=450 center",
+        //         trigger:"#models",
+        //         end:"top-=100 center",
+        //         scrub:true,
+        //         markers:true,
+        //     }
+        // },{
+
+        // })
+
 
         const logos = gsap.utils.toArray(".car_logo")
-        console.log(logos)
 
-        horizontalLoop(logos,{
-            repeat:-1,
-        })
-        
+        mm.add("(min-width: 800px)", () => {
+            horizontalLoop(logos, {
+                repeat: -1,
+            })
+        });
+
+        mm.add("(max-width: 799px)", () => {
+            horizontalLoop(logos,{
+                repeat:-1,
+                speed: 1,
+            })
+        });
+
+
 
 
 
     });
     return (
-        <section id="models" className='' style={{viewTransitionName:"models_section"}}>
-            <div className='flex'>
+        <section id="models" className='' style={{ viewTransitionName: "models_section" }}>
+            <div className='flex flex-col justify-center items-center md:justify-start md:items-start'>
                 <h1 className=' text-white text-2xl md:text-5xl font-bold p-8'>We Service A Variety Of Makes and Models</h1>
+                <p className="px-9 -mt-2 text-base md:text-xl">From American to Japanese. From sedan to SUV.</p>
             </div>
             <div className='model_caro'>
                 <img className="car_logo" src="/car_logos/bmw.png" alt="bmw logo" />

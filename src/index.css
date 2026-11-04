@@ -360,6 +360,21 @@ nav {
     bottom: -20%;
 }
 
+ #models{
+    clip-path: ellipse(50% 40% at 50% 100%);
+    /* margin-bottom:px; */
+    /* transform: translateY(-150); */
+    /* margin-top: -350px; */
+    margin-top: clamp(-160px, -20dvh, -48px);
+    min-height: 100dvh;
+    background: #152331;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #000000, #152331);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #000000, #152331); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    @apply flex flex-col md:flex-row justify-center items-center overflow-hidden;
+   
+ }  
+
+
 .model_caro {
     display: flex;
     flex-direction: row;
@@ -374,4 +389,5 @@ nav {
     width: 150px;
     height: auto;
     object-fit: cover;
+    @apply shrink-0;
 }
